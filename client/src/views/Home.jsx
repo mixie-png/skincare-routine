@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Header from './Header'
+import '../assets/static/css/Home.css'
+import Footer from './Footer'
 
 const Home = () => {
     const [routines, setRoutines] = useState([])
@@ -16,33 +18,37 @@ const Home = () => {
     }, [])
 
     return (
-        <>
+        <div className='container'>
             {/* <div>{JSON.stringify(routines)}</div> */}
-            <Header headTitle={`Home`} />
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Page Count</th>
-                        <th>Available</th>
-                        <th>Routine Page</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {routines.map((routine) => {
-                        return (
-                            <tr key={routine._id}>
-                                <td>{routine.title}</td>
-                                <td>{routine.author}</td>
-                                <td>{routine.pages}</td>
-                                <td>{routine.isAvailable ? "Yes" : "No"} | <Link to={`/routines/${routine._id}/update`}>Edit</Link></td>
-                                <td><Link to={`/routines/${routine._id}`}><button>Routine Details</button></Link></td>
-                            </tr>)
-                    })}
-                </tbody>
-            </table>
-        </>
+            <Header headTitle={`SkinRoutine`} />
+            <div className='product-list'>
+                <Link className='link' to="/routines/products">My Product List</Link>
+            </div>
+            <img className='girl' src="./src/assets/pics/girl.png" alt="skincare girl" />
+            <p>List of routines:</p>
+            <ul className='link-container'>
+                <Link className='link' to="/routines/1">
+                    <li>Winter Routine</li>
+                </Link>
+                <Link className='link' to="/routines/2">
+                    <li>Retinol Routine</li>
+                </Link>
+            </ul>
+            {routines.map((routine) => {
+                return (
+                    <ul key={routine._id}>
+                        <li>{routine.title}</li>
+                        <li>{routine.author}</li>
+                        <li>{routine.pages}</li>
+                        <li>{routine.isAvailable ? "Yes" : "No"} | <Link to={`/routines/${routine._id}/update`}>Edit</Link></li>
+                        <li><Link to={`/routines/${routine._id}`}><button>Routine Details</button></Link></li>
+                    </ul>)
+            })}
+            <div className='add-container'>
+                <Link className='add-routine' to="/create">Add Routine</Link>
+            </div>
+            <Footer></Footer>
+        </div>
     )
 }
 
