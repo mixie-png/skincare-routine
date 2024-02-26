@@ -1,0 +1,15 @@
+h2{
+    /* margin: 20px; */
+}
+p, li{
+    font-size: 25px;
+}
+.prod-list{
+    width: 350px;
+    height: 250px;
+    margin-top: 25px;
+    background-color: #EFE3D9;
+    padding: 10px 0px 0px 10px;
+    text-align: left;
+    border-radius: 10px;
+}

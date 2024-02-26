@@ -24,7 +24,7 @@ function App() {
         <Route path="/routines/:id" element={<ReadOne />} />
 
         {/* UPDATE PAGE */}
-        <Route path="/routines/:id/update" element={<Update />} />
+        <Route path="/update" element={<Update />} />
 
         {/* PRODUCTS PAGE */}
         <Route path="/products" element={<Products />} />
