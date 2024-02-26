@@ -1,16 +1,18 @@
 import React from 'react'
 import '../assets/static/css/Footer.css'
-import { Link } from 'react-router-dom'
-
+import home from '../assets/pics/home.png'
+import products from '../assets/pics/products.png'
+import routine from '../assets/pics/routine.png'
+import setting from '../assets/pics/setting.png'
 
 const Footer = () => {
     return (
         <div>
             <div className='flex'>
-                <img className='home-icon' src="./src/assets/pics/home.png" alt="home"/>
-                <img className='routine-icon' src="./src/assets/pics/routine.png" alt="routine" />
-                <img className='personal-hygiene-icon' src="./src/assets/pics/personal-hygiene.png" alt="personal-hygiene" />
-                <img className='setting-icon' src="./src/assets/pics/setting.png" alt="setting" />
+                <img className='home-icon' src={home} alt="home"/>
+                <img className='routine-icon' src={routine} alt="routine" />
+                <img className='personal-hygiene-icon' src={products} alt="products" />
+                <img className='setting-icon' src={setting} alt="setting" />
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
 import Header from './Header'
+import Footer from './Footer'
 
 const ReadOne = () => {
     const { id } = useParams()
@@ -46,6 +47,7 @@ const ReadOne = () => {
                     </div>
                 ) : <div>Loading...</div>
             }
+            <Footer></Footer>
         </>
     )
 }
