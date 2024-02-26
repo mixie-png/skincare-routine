@@ -5,6 +5,7 @@ import ReadOne from './views/ReadOne';
 import Create from './views/Create';
 import Update from './views/Update';
 import Products from './views/Products';
+import ReadAll from './views/ReadAll';
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
     <>
       {/* set up routes */}
       <Routes>
-        <Route path="/routines" element={<Navigate to="/" />} />
+        {/* <Route path="/routines" element={<Navigate to="/" />} /> */}
         {/* HOME */}
         <Route path="/" element={<Home />} />
 
@@ -26,7 +27,11 @@ function App() {
         <Route path="/routines/:id/update" element={<Update />} />
 
         {/* PRODUCTS PAGE */}
-        <Route path="/routines/products" element={<Products />} />
+        <Route path="/products" element={<Products />} />
+
+        {/* ROUTINE SHOW ALL PAGE */}
+        <Route path="/routines" element={<ReadAll />} />
+
       </Routes>
     </>
   )
