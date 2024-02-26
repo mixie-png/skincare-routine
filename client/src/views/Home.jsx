@@ -48,8 +48,6 @@ const Home = () => {
                 <Link className='add-routine' to="/create">Add Routine</Link>
             </div>
             {/* this is the footer that shows the logos */}
-            {/* this is the footer that shows the logos */}
-            {/* this is the footer that shows the logos */}
             <Footer></Footer>
         </div>
     )
