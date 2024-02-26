@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from './Header'
+import Footer from './Footer'
+import '../assets/static/css/CreateEdit.css'
+
 
 const Update = () => {
     const [title, setTitle] = useState("")
@@ -45,30 +48,55 @@ const Update = () => {
 
     return (
         <>
-            <Header headTitle={`Update ${title}`} />
-            <form onSubmit={handleSubmit}>
+            <Header headTitle={`SkinRoutine`} />
+            <h3>Edit Skincare Routine</h3>
+            <form onSubmit={handleSubmit} className='form'>
                 <div>
-                    Title:
+                    <p className='mainPtags'>Routine Name*</p>
                     <input value={title} onChange={(e) => setTitle(e.target.value)} />
                     {errors.title && <p style={{ color: "red" }}>{errors.title.message}</p>}
                 </div>
                 <div>
-                    Author Name:
+                    <p className='mainPtags'>Routine Type* </p>
+                    <p className='subPtags'>(Morning, Night, or Both)</p>
                     <input value={author} onChange={(e) => setAuthor(e.target.value)} />
                     {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
-
                 </div>
                 <div>
-                    Page Count:
+                    <p className='mainPtags'>Frequency</p>
+                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
+                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                </div>
+                <div>
+                    <p className='mainPtags'>Product Name*</p>
+                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
+                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                </div>
+                <div>
+                    <p className='mainPtags'>Category* </p>
+                    <p className='subPtags'>(cleanser, toner, moisturizer, spf, treatment)</p>
+                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
+                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                </div>
+                <div>
+                    <p className='mainPtags'>Product Order</p>
+                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
+                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                </div>
+                <div>
+                    <p className='mainPtags'>Rating:</p>
                     <input type="number" value={pages} onChange={(e) => setPages(e.target.value)} />
                     {errors.pages && <p style={{ color: "red" }}>{errors.pages.message}</p>}
                 </div>
                 <div>
-                    Is It Available?
-                    <input type="checkbox" checked={isAvailable} onChange={(e) => setIsAvailable(e.target.checked)} />
+                    <p className='mainPtags'>Repurchase?* (Yes or No)</p>
+                    {/* <input type="checkbox" checked={isAvailable} onChange={(e) => setIsAvailable(e.target.checked)} /> */}
+                    <input value={author} onChange={(e) => setPages(e.target.value)} />
+                    {errors.pages && <p style={{ color: "red" }}>{errors.pages.message}</p>}
                 </div>
-                <button type="submit">Update Routine!</button>
+                <div><button type="submit" className='submitButton'>Submit</button></div>
             </form>
+            <Footer></Footer>
         </>
     )
 }
