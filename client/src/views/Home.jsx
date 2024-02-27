@@ -11,7 +11,7 @@ const Home = () => {
         <div className='container'>
             <Header headTitle={`SkinRoutine`} />
             <div className='product-list'>
-                <Link className='link' to="/routines/products">Product List</Link>
+                <Link className='link' to="/products">Product List</Link>
             </div>
 
             <div className='routine-list'>
