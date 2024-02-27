@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
+import '../assets/static/css/ReadOne.css'
 
 const ReadOne = () => {
     const { id } = useParams()
@@ -37,7 +38,20 @@ const ReadOne = () => {
     return (
         <>
             {/* <div>{JSON.stringify(oneRoutine)}</div> */}
-            {
+            <Header headTitle={`SkinRoutine`} />
+            <h2>Winter Routine</h2>
+            <div className='routine-container'>
+                <p>Type: Morning</p>
+                <p>Frequency: Daily</p>
+                <ol>
+                    <li>Cleanser <p>Product: Cerave Foaming Cleanser</p></li>
+                    <li>Toner <p>Product: Good Molecules Hydrating Toner</p></li>
+                    <li>Moisturizer <p>Product: Trader Joe's Oil-Free Facial Moisturizer</p></li>
+                    <li>Sunscreen <p>Product: Supergoop Sunscreen</p></li>
+                </ol>
+                <Link to="/update/:id"><button className='edit-btn'>Edit</button></Link>
+            </div>
+            {/* {
                 oneRoutine !== null ? (
                     <div>
                         <Header headTitle={`${oneRoutine.title}`} />
@@ -46,7 +60,7 @@ const ReadOne = () => {
                         {oneRoutine.isAvailable ? <div> <p style={{ color: "green" }}>Available for borrowing</p> <button onClick={() => deleteRoutine(id)}>Borrow</button> </div> : <p style={{ color: "red" }}>Not available for borrowing</p>}
                     </div>
                 ) : <div>Loading...</div>
-            }
+            } */}
             <Footer></Footer>
         </>
     )
