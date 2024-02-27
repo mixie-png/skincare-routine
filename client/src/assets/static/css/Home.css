@@ -30,9 +30,16 @@ li {
 }
 
 .product-list {
-    margin: 50px;
+    margin: 20px;
 }
 
 .link-container {
     margin-bottom: 90px;
+}
+
+.mantra {
+    font-weight: 700;
+}
+.mantra-container {
+    margin: 50px;
 }
