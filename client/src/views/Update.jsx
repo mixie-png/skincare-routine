@@ -56,46 +56,53 @@ const Update = () => {
             <form onSubmit={handleSubmit} className='form'>
                 <div>
                     <p className='mainPtags'>Routine Name*</p>
-                    <input value={routineName} onChange={(e) => setTitle(e.target.value)} />
-                    {errors.title && <p style={{ color: "red" }}>{errors.title.message}</p>}
+                    <input className="input1" value={routineName} onChange={(e) => setRoutineName(e.target.value)} />
+                    {errors.routineName && <p style={{ color: "red" }}>{errors.routineName.message}</p>}
                 </div>
                 <div>
-                    <p className='mainPtags'>Routine Type* </p>
-                    <p className='subPtags'>(Morning, Night, or Both)</p>
-                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    <p className='mainPtags'>Routine Type</p>
+                    <select value={routineType} onChange={(e) => setRoutineType(e.target.value)}>
+                        <option value="morning">Morning</option>
+                        <option value="night">Night</option>
+                        <option value="both">Both</option>
+                    </select>
+                    {errors.routineType && <p style={{ color: "red" }}>{errors.routineType.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Frequency</p>
-                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    <select value={frequency} onChange={(e) => setFrequency(e.target.value)}>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="biweekly">Biweekly</option>
+                    </select>
+                    {errors.frequency && <p style={{ color: "red" }}>{errors.frequency.message}</p>}
+                </div>
+                <div>
+                    <p className='mainPtags'>Category</p>
+                    <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <option value="cleanser">Cleanser</option>
+                        <option value="toner">Toner</option>
+                        <option value="moisturizer">Moisturizer</option>
+                        <option value="sunscreen">Sunscreen</option>
+                        <option value="treatment">Treatment</option>
+                    </select>
+                    {errors.category && <p style={{ color: "red" }}>{errors.category.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Product Name*</p>
-                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    <input value={productName} onChange={(e) => setProductName(e.target.value)} />
+                    {errors.productName && <p style={{ color: "red" }}>{errors.productName.message}</p>}
                 </div>
+
                 <div>
-                    <p className='mainPtags'>Category* </p>
-                    <p className='subPtags'>(cleanser, toner, moisturizer, spf, treatment)</p>
-                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    <p className='mainPtags'>Product Order*</p>
+                    <input type='number' value={order} onChange={(e) => setOrder(e.target.value)} />
+                    {errors.order && <p style={{ color: "red" }}>{errors.order.message}</p>}
                 </div>
-                <div>
-                    <p className='mainPtags'>Product Order</p>
-                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
-                </div>
-                <div>
-                    <p className='mainPtags'>Rating:</p>
-                    <input type="number" value={pages} onChange={(e) => setPages(e.target.value)} />
-                    {errors.pages && <p style={{ color: "red" }}>{errors.pages.message}</p>}
-                </div>
-                <div>
-                    <p className='mainPtags'>Repurchase?* (Yes or No)</p>
-                    {/* <input type="checkbox" checked={isAvailable} onChange={(e) => setIsAvailable(e.target.checked)} /> */}
-                    <input value={author} onChange={(e) => setPages(e.target.value)} />
-                    {errors.pages && <p style={{ color: "red" }}>{errors.pages.message}</p>}
+                <div className='repurchase-container'>
+                    <p className='mainPtags'>Repurchase?*</p>
+                    <input className='checkbox' type="checkbox" checked={repurchase} onChange={(e) => setRepurchase(e.target.checked)} />
+                    {errors.repurchase && <p style={{ color: "red" }}>{errors.repurchase.message}</p>}
                 </div>
                 <div><button type="submit" className='submitButton'>Submit</button></div>
             </form>
