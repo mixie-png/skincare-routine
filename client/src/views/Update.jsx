@@ -7,10 +7,13 @@ import '../assets/static/css/CreateEdit.css'
 
 
 const Update = () => {
-    const [title, setTitle] = useState("")
-    const [author, setAuthor] = useState("")
-    const [pages, setPages] = useState(1)
-    const [isAvailable, setIsAvailable] = useState(false)
+    const [routineName, setRoutineName] = useState("")
+    const [routineType, setRoutineType] = useState("morning")
+    const [frequency, setFrequency] = useState("daily")
+    const [category, setCategory] = useState("cleanser")
+    const [productName, setProductName] = useState("")
+    const [order, setOrder] = useState(1)
+    const [repurchase, setRepurchase] = useState(false)
 
     const [errors, setErrors] = useState({})
 
@@ -53,7 +56,7 @@ const Update = () => {
             <form onSubmit={handleSubmit} className='form'>
                 <div>
                     <p className='mainPtags'>Routine Name*</p>
-                    <input value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input value={routineName} onChange={(e) => setTitle(e.target.value)} />
                     {errors.title && <p style={{ color: "red" }}>{errors.title.message}</p>}
                 </div>
                 <div>

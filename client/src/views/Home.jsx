@@ -9,12 +9,11 @@ const Home = () => {
 
     return (
         <div className='container'>
+            <h1 className='welcome'>Welcome to</h1>
             <Header headTitle={`SkinRoutine`} />
-            <div className='product-list'>
-                <Link className='link' to="/products">Product List</Link>
-            </div>
 
-            <div className='routine-list'>
+            <div className='links-container'>
+                <Link className='link' to="/products">Product List</Link>
                 <Link className='link' to="/routines">Routine List</Link>
             </div>
 

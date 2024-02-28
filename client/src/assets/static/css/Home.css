@@ -5,10 +5,12 @@ li {
 
 .add-routine {
     background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.3);
     color: #ffffff;
-    text-decoration: none;
 
     padding: 10px;
+    text-decoration: none;
     width: 230px;
 }
 
@@ -17,29 +19,39 @@ li {
 }
 
 .link {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     color: #000000;
     font-weight: bold;
+    margin: 15px;
+    padding: 10px;
     text-decoration: none;
-    margin-top: 15px;
 }
 
 .girl {
-    height: 250px;
+    height: 300px;
     display: block;
-    margin: 50px auto;
+    margin: 40px auto;
 }
 
-.product-list {
-    margin: 20px;
-}
-
-.link-container {
-    margin-bottom: 90px;
+.links-container {
+    margin-top: 20px;
 }
 
 .mantra {
     font-weight: 700;
 }
+
 .mantra-container {
     margin: 50px;
+}
+
+.welcome {
+    font-family: 'Karla', sans-serif;
+}
+
+.star1 {
+    position: absolute;
+    /* right: 100px; */
 }
