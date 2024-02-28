@@ -4,6 +4,8 @@ import Header from './Header'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import '../assets/static/css/ReadAll.css'
+import woman from '../assets/pics/woman.png'
 
 const ReadAll = () => {
   const [routines, setRoutines] = useState([])
@@ -24,15 +26,16 @@ const ReadAll = () => {
 
       <p className='list'>List of routines:</p>
       <div>
-        <ul className='link-container'>
-          <Link className='link' to="/routines/1">
-            <li>Winter Routine</li>
+        <ul>
+          <Link className='routine-link' to="/routines/1">
+            <li className='routine'>Winter Routine</li>
           </Link>
-          <Link className='link' to="/routines/2">
-            <li>Retinol Routine</li>
+          <Link className='routine-link' to="/routines/2">
+            <li className='routine'>Retinol Routine</li>
           </Link>
         </ul>
       </div>
+      <img className='woman' src={woman} alt="outline of woman" />
       {routines.map((routine) => {
         return (
           <ul key={routine._id}>
