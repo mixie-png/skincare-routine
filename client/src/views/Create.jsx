@@ -21,9 +21,9 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const tempObj = { title, author, pages, isAvailable }
+        const tempObj = { routineName, routineType, frequency, category, productName, order, repurchase }
 
-        axios.post(`http://localhost:8000/api/routines`, tempObj)
+        axios.post(`http://localhost:8000/api/create`, tempObj)
             .then((serverResponse) => {
                 console.log("CREATE ROUTINE is good to go!", serverResponse.data)
                 // redirect
@@ -42,17 +42,17 @@ const Create = () => {
             <form onSubmit={handleSubmit} className='form'>
                 <div>
                     <p className='mainPtags'>Routine Name</p>
-                    <input value={title} onChange={(e) => setTitle(e.target.value)} />
-                    {errors.title && <p style={{ color: "red" }}>{errors.title.message}</p>}
+                    <input value={routineName} onChange={(e) => setRoutineName(e.target.value)} />
+                    {errors.routineName && <p style={{ color: "red" }}>{errors.routineName.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Routine Type</p>
-                    <select value={type} onChange={(e) => setType(e.target.value)}>
+                    <select value={routineType} onChange={(e) => setRoutineType(e.target.value)}>
                         <option value="morning">Morning</option>
                         <option value="night">Night</option>
                         <option value="both">Both</option>
                     </select>
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    {errors.routineType && <p style={{ color: "red" }}>{errors.routineType.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Frequency</p>
@@ -61,7 +61,7 @@ const Create = () => {
                         <option value="weekly">Weekly</option>
                         <option value="biweekly">Biweekly</option>
                     </select>
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    {errors.frequency && <p style={{ color: "red" }}>{errors.frequency.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Category</p>
@@ -72,23 +72,23 @@ const Create = () => {
                         <option value="sunscreen">Sunscreen</option>
                         <option value="treatment">Treatment</option>
                     </select>
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    {errors.category&& <p style={{ color: "red" }}>{errors.category.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Product Name</p>
-                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    <input value={productName} onChange={(e) => setProductName(e.target.value)} />
+                    {errors.productName && <p style={{ color: "red" }}>{errors.productName.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Product Order</p>
-                    <input value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    {errors.author && <p style={{ color: "red" }}>{errors.author.message}</p>}
+                    <input value={order} onChange={(e) => setOrder(e.target.value)} />
+                    {errors.order && <p style={{ color: "red" }}>{errors.order.message}</p>}
                 </div>
                 <div className='repurchase-container'>
                     <p className='mainPtags'>Repurchase?</p>
                     {/* <input type="checkbox" checked={isAvailable} onChange={(e) => setIsAvailable(e.target.checked)} /> */}
-                    <input type='checkbox' value={author} onChange={(e) => setPages(e.target.value)} />
-                    {errors.pages && <p style={{ color: "red" }}>{errors.pages.message}</p>}
+                    <input type='checkbox' value={repurchase} onChange={(e) => setRepurchase(e.target.value)} />
+                    {errors.repurchase && <p style={{ color: "red" }}>{errors.repurchase.message}</p>}
                 </div>
                 <div><button type="submit" className='submitButton'>Submit</button></div>
             </form>
