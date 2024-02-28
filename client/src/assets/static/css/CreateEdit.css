@@ -9,8 +9,13 @@ h3 {
 }
 
 input {
+    background-color: #f8f3ef;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+
+    padding: 10px;
+    height: 20px;
     width: 100%;
-    height: 35px;
 }
 
 .form {
@@ -28,7 +33,6 @@ input {
 .submitButton {
     font-size: 33px;
     background-color: #000000;
-    /* font-weight: bold; */
     margin: 17px 0 0 90px;
     color: white;
     width: 155px;
@@ -38,4 +42,26 @@ input {
 
 .repurchase-container {
     display: flex;
+    gap: 35px;
+}
+
+input[type="checkbox"] {
+    /* appearance: none; */
+
+    background-color: #f8f3ef;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+    width: 25px;
+}
+
+select {
+    background-color: #f8f3ef;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+
+    padding: 10px;
+}
+
+div {
+    margin-bottom: 10px;
 }
