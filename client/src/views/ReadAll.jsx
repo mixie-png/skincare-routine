@@ -3,11 +3,13 @@ import Footer from './Footer'
 import Header from './Header'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../assets/static/css/ReadAll.css'
 import woman from '../assets/pics/woman.png'
 
 const ReadAll = () => {
+  const { id } = useParams()
+
   const [routines, setRoutines] = useState([])
 
   useEffect(() => {
@@ -39,11 +41,9 @@ const ReadAll = () => {
       {routines.map((routine) => {
         return (
           <ul key={routine._id}>
-            <li>{routine.title}</li>
-            <li>{routine.author}</li>
-            <li>{routine.pages}</li>
-            <li>{routine.isAvailable ? "Yes" : "No"} | <Link to={`/routines/${routine._id}/update`}>Edit</Link></li>
-            <li><Link to={`/routines/${routine._id}`}><button>Routine Details</button></Link></li>
+            <Link className='routine-link' to={`/routines/${routine._id}`}>
+              <li className='routine'>{routine.routineName}</li>
+            </Link>
           </ul>)
       })}
       {/* this is the footer that shows the logos */}

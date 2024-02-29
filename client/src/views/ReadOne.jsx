@@ -39,28 +39,22 @@ const ReadOne = () => {
         <>
             {/* <div>{JSON.stringify(oneRoutine)}</div> */}
             <Header headTitle={`SkinRoutine`} />
-            <h2>Winter Routine</h2>
-            <div className='routine-container'>
-                <p>Type: Morning</p>
-                <p>Frequency: Daily</p>
-                <ol>
-                    <li>Cleanser <p>Product: Cerave Foaming Cleanser</p></li>
-                    <li>Toner <p>Product: Good Molecules Hydrating Toner</p></li>
-                    <li>Moisturizer <p>Product: Trader Joe's Oil-Free Facial Moisturizer</p></li>
-                    <li>Sunscreen <p>Product: Supergoop Sunscreen</p></li>
-                </ol>
-                <Link to="/update/:id"><button className='edit-btn'>Edit</button></Link>
-            </div>
-            {/* {
-                oneRoutine !== null ? (
-                    <div>
-                        <Header headTitle={`${oneRoutine.title}`} />
-                        <p>By {oneRoutine.author}</p>
-                        <p>Page count: {oneRoutine.pages}</p>
-                        {oneRoutine.isAvailable ? <div> <p style={{ color: "green" }}>Available for borrowing</p> <button onClick={() => deleteRoutine(id)}>Borrow</button> </div> : <p style={{ color: "red" }}>Not available for borrowing</p>}
-                    </div>
-                ) : <div>Loading...</div>
-            } */}
+                {
+                    oneRoutine !== null ? (
+                        <div>
+                            <h2>{oneRoutine.routineName}</h2>
+                            <div className='routine-container'>
+                                <p>Type: {oneRoutine.routineType}</p>
+                                <p>Frequency: {oneRoutine.frequency}</p>
+                                <ol key={oneRoutine._id}>
+                                    <li>Product Name: {oneRoutine.productName}</li>
+                                </ol>
+                                <Link to={`/routines/${oneRoutine._id}/update`}><button className='edit-btn'>Edit</button></Link>
+                                <button onClick={() => deleteRoutine(oneRoutine._id)} className='delete-btn'>Remove</button>
+                            </div>
+                        </div>
+                    ) : <div>Loading...</div>
+                }
             <Footer></Footer>
         </>
     )
