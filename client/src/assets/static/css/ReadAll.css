@@ -14,7 +14,7 @@
 }
 
 .woman {
-    position: absolute;
+    position: fixed;
     height: 18em;
     bottom: 135px;
     transform: rotate(-45deg);

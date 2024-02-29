@@ -7,7 +7,7 @@ li {
     font-size: 25px;
 }
 
-.list{
+.list {
     font-size: 35px;
 }
 
@@ -30,7 +30,8 @@ li {
 }
 
 .prettyFlowers {
-    position: absolute;
+    /* position: absolute; */
+    position: fixed;
     height: 65%;
     left: 0;
     margin-top: 50px;
