@@ -18,16 +18,16 @@ function App() {
         <Route path="/" element={<Home />} />
 
         {/* CREATE PAGE */}
-        <Route path="/create" element={<Create />} />
+        <Route path="/routines/create" element={<Create />} />
 
         {/* SHOW ONE PAGE */}
         <Route path="/routines/:id" element={<ReadOne />} />
 
         {/* UPDATE PAGE */}
-        <Route path="/update/:id" element={<Update />} />
+        <Route path="/routines/:id/update/" element={<Update />} />
 
         {/* PRODUCTS PAGE */}
-        <Route path="/products" element={<Products />} />
+        <Route path="/routines/products" element={<Products />} />
 
         {/* ROUTINE SHOW ALL PAGE */}
         <Route path="/routines" element={<ReadAll />} />

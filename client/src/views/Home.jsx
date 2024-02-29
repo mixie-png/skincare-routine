@@ -13,7 +13,7 @@ const Home = () => {
             <Header headTitle={`SkinRoutine`} />
 
             <div className='links-container'>
-                <Link className='link' to="/products">Product List</Link>
+                <Link className='link' to="/routines/products">Product List</Link>
                 <Link className='link' to="/routines">Routine List</Link>
             </div>
 
@@ -25,7 +25,7 @@ const Home = () => {
             </div>
 
             <div className='add-container'>
-                <Link className='add-routine' to="/create">Add Routine</Link>
+                <Link className='add-routine' to="/routines/create">Add Routine</Link>
             </div>
             <Footer />
         </div>

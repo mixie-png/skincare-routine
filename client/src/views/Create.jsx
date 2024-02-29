@@ -12,7 +12,7 @@ const Create = () => {
     const [frequency, setFrequency] = useState("daily")
     const [category, setCategory] = useState("cleanser")
     const [productName, setProductName] = useState("")
-    const [order, setOrder] = useState(1)
+    const [productOrder, setProductOrder] = useState(1)
     const [repurchase, setRepurchase] = useState(false)
 
     const [errors, setErrors] = useState({})
@@ -21,9 +21,9 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const tempObj = { routineName, routineType, frequency, category, productName, order, repurchase }
+        const tempObj = { routineName, routineType, frequency, category, productName, productOrder, repurchase }
 
-        axios.post(`http://localhost:8000/api/create`, tempObj)
+        axios.post(`http://localhost:8000/api/routines/`, tempObj)
             .then((serverResponse) => {
                 console.log("CREATE ROUTINE is good to go!", serverResponse.data)
                 // redirect
@@ -48,29 +48,29 @@ const Create = () => {
                 <div>
                     <p className='mainPtags'>Routine Type</p>
                     <select value={routineType} onChange={(e) => setRoutineType(e.target.value)}>
-                        <option value="morning">Morning</option>
-                        <option value="night">Night</option>
-                        <option value="both">Both</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Night">Night</option>
+                        <option value="Both">Both</option>
                     </select>
                     {errors.routineType && <p style={{ color: "red" }}>{errors.routineType.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Frequency</p>
                     <select value={frequency} onChange={(e) => setFrequency(e.target.value)}>
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="biweekly">Biweekly</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Biweekly">Biweekly</option>
                     </select>
                     {errors.frequency && <p style={{ color: "red" }}>{errors.frequency.message}</p>}
                 </div>
                 <div>
                     <p className='mainPtags'>Category</p>
                     <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                        <option value="cleanser">Cleanser</option>
-                        <option value="toner">Toner</option>
-                        <option value="moisturizer">Moisturizer</option>
-                        <option value="sunscreen">Sunscreen</option>
-                        <option value="treatment">Treatment</option>
+                        <option value="Cleanser">Cleanser</option>
+                        <option value="Toner">Toner</option>
+                        <option value="Moisturizer">Moisturizer</option>
+                        <option value="Sunscreen">Sunscreen</option>
+                        <option value="Treatment">Treatment</option>
                     </select>
                     {errors.category&& <p style={{ color: "red" }}>{errors.category.message}</p>}
                 </div>
@@ -81,13 +81,13 @@ const Create = () => {
                 </div>
                 <div>
                     <p className='mainPtags'>Product Order</p>
-                    <input value={order} onChange={(e) => setOrder(e.target.value)} />
-                    {errors.order && <p style={{ color: "red" }}>{errors.order.message}</p>}
+                    <input type="number" value={productOrder} onChange={(e) => setProductOrder(e.target.value)} />
+                    {errors.productOrder && <p style={{ color: "red" }}>{errors.productOrder.message}</p>}
                 </div>
                 <div className='repurchase-container'>
                     <p className='mainPtags'>Repurchase?</p>
                     {/* <input type="checkbox" checked={isAvailable} onChange={(e) => setIsAvailable(e.target.checked)} /> */}
-                    <input type='checkbox' value={repurchase} onChange={(e) => setRepurchase(e.target.value)} />
+                    <input type='checkbox' checked={repurchase} onChange={(e) => setRepurchase(e.target.checked)} />
                     {errors.repurchase && <p style={{ color: "red" }}>{errors.repurchase.message}</p>}
                 </div>
                 <div><button type="submit" className='submitButton'>Submit</button></div>

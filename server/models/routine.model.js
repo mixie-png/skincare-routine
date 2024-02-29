@@ -15,18 +15,21 @@ const RoutineSchema = new Schema(
         },
         frequency: {
             type: String,
-            required: [true, "Pages is required!"],
-            min: [1, "Pages must be at least 1!"]
+            required: [true, "Title is required!"],
+            minlength: [2, "Title must be at least 2 characters long!"],
+            maxlength: [255, "Title must be less than 255 characters long"]
         },
         category: {
             type: String,
-            required: [true, "Pages is required!"],
-            min: [1, "Pages must be at least 1!"]
+            required: [true, "Title is required!"],
+            minlength: [2, "Title must be at least 2 characters long!"],
+            maxlength: [255, "Title must be less than 255 characters long"]
         },
         productName: {
             type: String,
-            required: [true, "Pages is required!"],
-            min: [1, "Pages must be at least 1!"]
+            required: [true, "Title is required!"],
+            minlength: [2, "Title must be at least 2 characters long!"],
+            maxlength: [255, "Title must be less than 255 characters long"]
         },
         productOrder: {
             type: Number,
