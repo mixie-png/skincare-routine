@@ -25,18 +25,7 @@ const ReadAll = () => {
     <div>
       <Header headTitle={`SkinRoutine`} />
       {/* <div>{JSON.stringify(routines)}</div> */}
-
       <p className='list'>List of routines:</p>
-      <div>
-        <ul>
-          <Link className='routine-link' to="/routines/1">
-            <li className='routine'>Winter Routine</li>
-          </Link>
-          <Link className='routine-link' to="/routines/2">
-            <li className='routine'>Retinol Routine</li>
-          </Link>
-        </ul>
-      </div>
       <img className='woman' src={woman} alt="outline of woman" />
       {routines.map((routine) => {
         return (

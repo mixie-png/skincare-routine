@@ -10,6 +10,16 @@ async function getAllProducts(req, res) {
     }
 }
 
+async function deleteProducts(req, res) {
+    try {
+        await Product.deleteMany()
+        res.json({message: 'success'})
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+}
+
 export {
-    getAllProducts,
+    getAllProducts, deleteProducts
 }
