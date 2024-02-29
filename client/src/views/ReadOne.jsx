@@ -39,22 +39,24 @@ const ReadOne = () => {
         <>
             {/* <div>{JSON.stringify(oneRoutine)}</div> */}
             <Header headTitle={`SkinRoutine`} />
-                {
-                    oneRoutine !== null ? (
-                        <div>
-                            <h2>{oneRoutine.routineName}</h2>
-                            <div className='routine-container'>
-                                <p>Type: {oneRoutine.routineType}</p>
-                                <p>Frequency: {oneRoutine.frequency}</p>
-                                <ol key={oneRoutine._id}>
-                                    <li>Product Name: {oneRoutine.productName}</li>
-                                </ol>
-                                <Link to={`/routines/${oneRoutine._id}/update`}><button className='edit-btn'>Edit</button></Link>
-                                <button onClick={() => deleteRoutine(oneRoutine._id)} className='delete-btn'>Remove</button>
-                            </div>
+            {
+                oneRoutine !== null ? (
+                    <div>
+                        <h2>{oneRoutine.routineName}</h2>
+                        <div className='routine-container'>
+                            <p>Type: {oneRoutine.routineType}</p>
+                            <p>Frequency: {oneRoutine.frequency}</p>
+                            <ol key={oneRoutine._id}>
+                                {oneRoutine.products.map((product) => (
+                                <li>Product Name: {product.productName}</li>
+                                ))}
+                            </ol>
+                            <Link to={`/routines/${oneRoutine._id}/update`}><button className='edit-btn'>Edit</button></Link>
+                            <button onClick={() => deleteRoutine(oneRoutine._id)} className='delete-btn'>Remove</button>
                         </div>
-                    ) : <div>Loading...</div>
-                }
+                    </div>
+                ) : <div>Loading...</div>
+            }
             <Footer></Footer>
         </>
     )

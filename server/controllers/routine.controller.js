@@ -31,7 +31,7 @@ async function getAllRoutines(req, res) {
 
 async function getOneRoutine(req, res) {
     try {
-        const foundRoutine = await Routine.findById(req.params.id);
+        const foundRoutine = await Routine.findById(req.params.id).populate('products');
         res.json(foundRoutine);
     } catch (error) {
         console.log(error);
@@ -55,6 +55,7 @@ async function updateOneRoutine(req, res) {
 
 async function deleteOneRoutine(req, res) {
     try {
+        await Product.deleteMany({routine: req.params.id})
         const deletedOneRoutine = await Routine.findByIdAndDelete(req.params.id);
         res.json(deletedOneRoutine);
     } catch (error) {

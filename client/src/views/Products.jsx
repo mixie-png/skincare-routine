@@ -34,7 +34,7 @@ const Products = () => {
               <ul key={product._id} className='prod-list'>
                 <li>Product Name: {product.productName}</li>
                 <li>Category: {product.category}</li>
-                <li>Routine Name: {product.routine.routineName}</li>
+                <li>Routine Name: {product?.routine?.routineName}</li>
                 <li>Repurchase: {product.repurchase ? "Yes" : "No"} </li>
               </ul>
             </div>
