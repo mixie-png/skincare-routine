@@ -65,3 +65,14 @@ select {
 div {
     margin-bottom: 10px;
 }
+
+.plus {
+    background-color: #f8f3ef;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+
+    padding: 10px;
+    text-align: center;
+
+    width: 23px;
+}
