@@ -9,4 +9,11 @@
 
 body {
   background-image: url(./src/assets/pics/bg1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+html{
+  scroll-behavior: smooth;
 }
