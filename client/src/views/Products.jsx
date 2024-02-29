@@ -9,57 +9,16 @@ import { useState, useEffect } from 'react'
 
 
 const Products = () => {
-  const [routines, setRoutines] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/routines/")
+    axios.get("http://localhost:8000/api/products/")
       .then((serverResponse) => {
         console.log("Good to go!", serverResponse.data)
-        setRoutines(serverResponse.data)
+        setProducts(serverResponse.data)
       })
       .catch(error => console.log("BADBADNOTGOOD!", error))
   }, [])
-
-  const deleteRoutine = (deleteId) => {
-    console.log("delete", deleteId)
-    axios.delete(`http://localhost:8000/api/routines/${deleteId}`)
-        .then((serverResponse) => {
-            console.log(serverResponse.data)
-            // redirect
-            navigate("/")
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-}
-
-  // return (
-    // <div>
-    //   <Header headTitle={`SkinRoutine`} />
-
-    //   <img className='prettyFlowers' src={prettyFlowers} alt="pretty flowers"/>
-
-    //   <h2>Skincare Product List</h2>
-    //   <div className='prod-list'>
-    //     <p>Cerave Foaming Facial Cleanser</p>
-    //     <ul>
-    //       <li>Category: Cleanser</li>
-    //       <li>Rating: 4</li>
-    //       <li>Repurchase? Yes</li>
-    //       <li>Routine? Night</li>
-    //     </ul>
-    //   </div>
-    //   <div className='prod-list'>
-    //     <p>Tatcha Dewy Skin Moisturizer</p>
-    //     <ul>
-    //       <li>Category: Moisturizer</li>
-    //       <li>Rating: 5</li>
-    //       <li>Repurchase? Yes</li>
-    //       <li>Routine? Night</li>
-    //     </ul>
-    //   </div>
-
-
 
     return (
       <div>
@@ -69,16 +28,14 @@ const Products = () => {
         {/* <div>{JSON.stringify(routines)}</div> */}
   
         <p className='list'>Skincare Product List</p>
-        {routines.map((routine) => {
+        {products.map((product) => {
           return (
             <div>
-              <ul key={routine._id} className='prod-list'>
-                <li>Product Name: {routine.productName}</li>
-                <li>Category: {routine.category}</li>
-                <li>Routine Name: {routine.routineName}</li>
-                <li>Repurchase: {routine.repurchase ? "Yes" : "No"} </li>
-                {/* | <Link to={`/routines/${routine._id}/update`}>Edit</Link></li> */}
-                {/* <li><Link to={`/routines/${routine._id}`}><button>Routine Details</button></Link></li> */}
+              <ul key={product._id} className='prod-list'>
+                <li>Product Name: {product.productName}</li>
+                <li>Category: {product.category}</li>
+                <li>Routine Name: {product.routine.routineName}</li>
+                <li>Repurchase: {product.repurchase ? "Yes" : "No"} </li>
               </ul>
             </div>
             )

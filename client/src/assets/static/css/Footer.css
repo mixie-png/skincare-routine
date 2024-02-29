@@ -9,8 +9,8 @@
     display: flex;
     justify-content: space-between;
 
-    position: absolute;
-    bottom: 70px;
+    position: fixed;
+    bottom: 0px;
     width: 80%;
     padding-left: 10px;
 
