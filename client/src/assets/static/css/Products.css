@@ -9,12 +9,14 @@ li {
 
 .list {
     font-size: 35px;
+    margin-bottom: 25px;
 }
 
 .prod-list {
     width: 350px;
     height: 250px;
-    margin-top: 25px;
+
+    margin: 0 auto;
 
     /* background-color: #EFE3D9; */
     background: rgba(239, 227, 217, 0.5);

@@ -3,16 +3,20 @@
 .personal-hygiene-icon,
 .setting-icon {
     height: 35px;
+    padding-bottom: 10px;
 }
 
 .flex {
+    background: rgba(239, 227, 217, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
     position: fixed;
     bottom: 0px;
-    width: 80%;
-    padding-left: 10px;
+    width: 100%;
+    margin: 0px;
 
     border-top: 1px #000000 solid;
     padding-top: 25px;
