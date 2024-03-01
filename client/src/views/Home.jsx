@@ -23,8 +23,8 @@ const Home = () => {
             <Header headTitle={`SkinRoutine`} />
 
             <div className='links-container'>
-                <Link className='link' to="/routines/products">Product List</Link>
                 <Link className='link' to="/routines">Routine List</Link>
+                <Link className='link' to="/routines/products">Product List</Link>
             </div>
 
             <img className='girl' src="./src/assets/pics/girl.png" alt="skincare girl" />

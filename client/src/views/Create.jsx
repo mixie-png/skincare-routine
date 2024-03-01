@@ -23,7 +23,7 @@ const Create = () => {
         axios.post(`http://localhost:8000/api/routines/`, tempObj)
             .then((serverResponse) => {
                 console.log("CREATE ROUTINE is good to go!", serverResponse.data);
-                navigate("/");
+                navigate(`/routines/${serverResponse.data._id}`);
             })
             .catch((error) => {
                 console.log("CREATE ROUTINE ERROR!!!", error.response.data.errors);
