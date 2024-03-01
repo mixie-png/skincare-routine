@@ -15,11 +15,12 @@ input {
 
     padding: 10px;
     height: 20px;
-    width: 100%;
+    width: 95%;
 }
 
 .form {
     text-align: left;
+    padding: 25px;
 }
 
 .mainPtags {
