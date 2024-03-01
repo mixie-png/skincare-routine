@@ -32,7 +32,6 @@ input {
 }
 
 .submitButton {
-    display: flex;
     font-size: 33px;
     background-color: #000000;
     margin: 17px 0 90px 90px;
