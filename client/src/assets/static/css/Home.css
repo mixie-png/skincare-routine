@@ -1,3 +1,7 @@
+body {
+    padding-top: 2rem;
+}
+
 li {
     list-style: none;
     margin: 15px;
@@ -19,7 +23,9 @@ li {
 }
 
 .link {
-    background-color: #ffffff;
+    /* background-color: #EFE3D9; */
+    background-color: #f8f3ef;
+    border: 1px solid lightgray;
     border-radius: 10px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     color: #000000;
@@ -39,19 +45,14 @@ li {
     margin-top: 20px;
 }
 
-.mantra {
+.quote {
     font-weight: 700;
 }
 
-.mantra-container {
+.quote-container {
     margin: 50px;
 }
 
 .welcome {
     font-family: 'Karla', sans-serif;
-}
-
-.star1 {
-    position: absolute;
-    /* right: 100px; */
 }

@@ -8,8 +8,6 @@ import '../assets/static/css/ReadAll.css'
 import woman from '../assets/pics/woman.png'
 
 const ReadAll = () => {
-  const { id } = useParams()
-
   const [routines, setRoutines] = useState([])
 
   useEffect(() => {
