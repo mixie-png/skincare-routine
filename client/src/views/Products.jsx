@@ -20,14 +20,15 @@ const Products = () => {
       .catch(error => console.log("BADBADNOTGOOD!", error))
   }, [])
 
-    return (
-      <div>
-        <Header headTitle={`SkinRoutine`} />
-        <img className='prettyFlowers' src={prettyFlowers} alt="pretty flowers"/>
+  return (
+    <div>
+      <Header headTitle={`SkinRoutine`} />
+      <img className='prettyFlowers' src={prettyFlowers} alt="pretty flowers" />
 
-        {/* <div>{JSON.stringify(routines)}</div> */}
-  
-        <p className='list'>Skincare Product List</p>
+      {/* <div>{JSON.stringify(routines)}</div> */}
+
+      <p className='list'>Skincare Product List</p>
+      <div className='product-container'>
         {products.map((product) => {
           return (
             <div>
@@ -38,12 +39,13 @@ const Products = () => {
                 <li>Repurchase: {product.repurchase ? "Yes" : "No"} </li>
               </ul>
             </div>
-            )
+          )
         })}
-        {/* this is the footer that shows the logos */}
-        <Footer />
       </div>
-    )
-  }
+      {/* this is the footer that shows the logos */}
+      <Footer />
+    </div>
+  )
+}
 
 export default Products
