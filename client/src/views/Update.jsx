@@ -10,10 +10,9 @@ const Update = () => {
     const [routineName, setRoutineName] = useState("")
     const [routineType, setRoutineType] = useState("morning")
     const [frequency, setFrequency] = useState("daily")
-    const [category, setCategory] = useState("cleanser")
-    const [productName, setProductName] = useState("")
-    const [productOrder, setProductOrder] = useState(1)
-    const [repurchase, setRepurchase] = useState(false)
+    const [products, setProducts] = useState([
+        { category: "cleanser", productName: "", productOrder: 1, repurchase: false },
+    ]);
 
     const [errors, setErrors] = useState({})
 
@@ -26,10 +25,7 @@ const Update = () => {
                 setRoutineName(response.data.routineName)
                 setRoutineType(response.data.routineType)
                 setFrequency(response.data.frequency)
-                setCategory(response.data.category)
-                setProductName(response.data.productName)
-                setProductOrder(response.data.productOrder)
-                setRepurchase(response.data.repurchase)
+                setProducts(response.data.products)
             })
             .catch(error => console.log("BADBADNOTGOOD!", error))
     }, [id])
@@ -38,19 +34,25 @@ const Update = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const tempObj = { routineName, routineType, frequency, category, productName, productOrder, repurchase }
+        const tempObj = { routineName, routineType, frequency, products }
 
         axios.put(`http://localhost:8000/api/routines/${id}`, tempObj)
             .then((response) => {
                 console.log("UPDATE ROUTINE is good to go!", response.data)
                 // redirect
-                navigate("/")
+                navigate(`/routines/${id}`)
             })
             .catch((error) => {
                 console.log("UPDATE ROUTINE ERROR!!!", error.response.data.errors)
                 setErrors(error.response.data.errors)
             })
     }
+
+    const handleProductChange = (index, field, e) => {
+        const newProducts = structuredClone(products);
+        newProducts[index][field] = field === "repurchase" ? e.target.checked : e.target.value;
+        setProducts(newProducts);
+    };
 
     return (
         <>
@@ -80,33 +82,33 @@ const Update = () => {
                     </select>
                     {errors.frequency && <p style={{ color: "red" }}>{errors.frequency.message}</p>}
                 </div>
-                <div>
-                    <p className='mainPtags'>Category</p>
-                    <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                        <option value="Cleanser">Cleanser</option>
-                        <option value="Toner">Toner</option>
-                        <option value="Moisturizer">Moisturizer</option>
-                        <option value="Sunscreen">Sunscreen</option>
-                        <option value="Treatment">Treatment</option>
-                    </select>
-                    {errors.category && <p style={{ color: "red" }}>{errors.category.message}</p>}
-                </div>
-                <div>
-                    <p className='mainPtags'>Product Name*</p>
-                    <input value={productName} onChange={(e) => setProductName(e.target.value)} />
-                    {errors.productName && <p style={{ color: "red" }}>{errors.productName.message}</p>}
-                </div>
 
-                <div>
-                    <p className='mainPtags'>Product Order*</p>
-                    <input type='number' value={productOrder} onChange={(e) => setProductOrder(e.target.value)} />
-                    {errors.productOrder && <p style={{ color: "red" }}>{errors.productOrder.message}</p>}
-                </div>
-                <div className='repurchase-container'>
-                    <p className='mainPtags'>Repurchase?*</p>
-                    <input className='checkbox' type="checkbox" checked={repurchase} onChange={(e) => setRepurchase(e.target.checked)} />
-                    {errors.repurchase && <p style={{ color: "red" }}>{errors.repurchase.message}</p>}
-                </div>
+                {products.map((product, index) => (
+                    <div key={index}>
+                        <div>
+                            <p className='mainPtags'>Category</p>
+                            <select value={product.category} onChange={(e) => handleProductChange(index, 'category', e)}>
+                                <option value="Cleanser">Cleanser</option>
+                                <option value="Toner">Toner</option>
+                                <option value="Moisturizer">Moisturizer</option>
+                                <option value="Sunscreen">Sunscreen</option>
+                                <option value="Treatment">Treatment</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p className='mainPtags'>Product Name</p>
+                            <input value={product.productName} onChange={(e) => handleProductChange(index, 'productName', e)} />
+                        </div>
+                        <div>
+                            <p className='mainPtags'>Product Order</p>
+                            <input type="number" value={product.productOrder} onChange={(e) => handleProductChange(index, 'productOrder', e)} />
+                        </div>
+                        <div className='repurchase-container'>
+                            <p className='mainPtags'>Repurchase?</p>
+                            <input type='checkbox' checked={product.repurchase} onChange={(e) => handleProductChange(index, 'repurchase', e)} />
+                        </div>
+                    </div>
+                ))}
                 <div><button type="submit" className='submitButton'>Update</button></div>
             </form>
             <Footer></Footer>

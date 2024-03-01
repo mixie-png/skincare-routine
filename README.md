@@ -16,6 +16,18 @@ Welcome to the Skincare Routine Tracker, a mobile site designed to help you impr
    - Displays a list of your current skincare products.
    - Allows you to easily update and manage your product list.
 
+## Technologies Used
+
+- MERN
+- Public API for Inspirational Quotes ([Inspirational Quotes API](https://github.com/lukePeavey/quotable))
+
+## Wireframe
+
+([Figma Wireframe](https://www.figma.com/file/7yuDyELi5xsIo3sS6rGnbH/SkinRoutine---wireframe?type=design&t=0fjZoryxMWDTLM9n-6))
+
+## The Site
+<img src="client/src/assets/pics/screenshot-skinroutine.png" alt="SkinRoutine site" height="400">
+
 ## Scenario
 
 **Goal:** Improve skincare habits
@@ -27,7 +39,10 @@ With the Skincare Routine Tracker, you can easily create and track your skincare
 
 ## User Stories
 
+1. Quotable API for random inspirational quotes
+2. Login and Registration using third party authentication
+
+## For Version 2.0
 1. Sephora Rapid API to get products by name or barcode
-2. Login and Registration using oauth
-3. Calendar for tracker
-4. Animations and micro-interactions
+2. Calendar for tracker
+3. Animations and micro-interactions

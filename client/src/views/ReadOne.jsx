@@ -51,9 +51,10 @@ const ReadOne = () => {
                                 <li>Product Name: {product.productName}</li>
                                 ))}
                             </ol>
-                            <Link to={`/routines/${oneRoutine._id}/update`}><button className='edit-btn'>Edit</button></Link>
-                            <button onClick={() => deleteRoutine(oneRoutine._id)} className='delete-btn'>Remove</button>
-                        </div>
+                            <div className="btn-container">
+                                <Link to={`/routines/${oneRoutine._id}/update`}><button className='edit-btn'>Edit</button></Link>
+                                <button onClick={() => deleteRoutine(oneRoutine._id)} className='delete-btn'>Remove</button>
+                            </div></div>
                     </div>
                 ) : <div>Loading...</div>
             }
