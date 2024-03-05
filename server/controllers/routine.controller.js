@@ -45,7 +45,17 @@ async function updateOneRoutine(req, res) {
         runValidators: true,
     };
     try {
-        const updatedRoutine = await Routine.findByIdAndUpdate(req.params.id, req.body, options);
+        const {routineName, routineType, frequency, products} = req.body
+        const prods = await Product.find({routine: req.params.id})
+        for (let i = 0; i < prods.length; i++) {
+            for (const key in prods[i].toJSON()) {
+                prods[i][key] = products[i][key]
+            }
+        }
+        await Product.bulkSave(prods)
+        console.log(products)
+        
+        const updatedRoutine = await Routine.findByIdAndUpdate(req.params.id, {routineName, routineType, frequency}, options);
         res.json(updatedRoutine);
     } catch (error) {
         console.log(error);
